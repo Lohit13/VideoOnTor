@@ -1,0 +1,9 @@
+STATS
+Frames lost : 0
+Traditional PSNR : 100
+MPSNR : 100
+dPSNR : 100
+
+METRICS
+POMOS : 4.7511
+ROMOS : 4.367
