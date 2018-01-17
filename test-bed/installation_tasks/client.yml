@@ -1,0 +1,5 @@
+---
+- name: Install vlc
+  apt: name=vlc state=installed
+  sudo: True
+  update_cache: True

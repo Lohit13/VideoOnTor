@@ -1,0 +1,5 @@
+[server]
+192.168.2.80 ansible_user=lohit ansible_ssh_pass=password
+
+[client]
+192.168.2.88 ansible_user=lohit ansible_ssh_pass=password

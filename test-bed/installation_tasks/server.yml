@@ -1,0 +1,56 @@
+---
+- name: Install prereqs
+  apt: name={{item}} state=installed
+  with_items:
+       - autoconf
+       - automake
+       - build-essential
+       - cmake
+       - git
+       - libass-dev
+       - libfreetype6-dev
+       - libsdl2-dev
+       - libtheora-dev
+       - libtool
+       - libva-dev
+       - libvdpau-dev
+       - libvorbis-dev
+       - libxcb1-dev
+       - libxcb-shm0-dev
+       - libxcb-xfixes0-dev
+       - mercurial
+       - pkg-config
+       - texinfo
+       - wget
+       - zlib1g-dev
+       - yasm
+       - libx264-dev
+       - libx265-dev
+       - libvpx-dev
+       - libfdk-aac-dev
+       - libmp3lame-dev
+       - libopus-dev
+  sudo: True
+  update_cache: True
+
+- name: Install ffmpeg
+  apt: name=ffmpeg state=installed
+  sudo: True
+  update_cache: True
+
+- name: Make directory for test files
+  file: path=~/stream_test state=directory
+
+- name: Copy video file
+  copy:
+    src: files/original.mp4
+    dest: ~/stream_test/original.mp4
+
+- name: Copy server file
+  copy:
+    src: files/server.py
+    dest: ~/stream_test/server.py
+
+- name: Install flask
+  pip:
+    name: Flask

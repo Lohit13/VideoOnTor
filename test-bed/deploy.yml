@@ -1,0 +1,13 @@
+---
+
+- name: Install ffmpeg on server
+  hosts: server
+  gather_facts: False
+  tasks:
+    - include: installation_tasks/server.yml
+
+- name: Install vlc on clients
+  hosts: client
+  gather_facts: False
+  tasks:
+    - include: installation_tasks/client.yml
